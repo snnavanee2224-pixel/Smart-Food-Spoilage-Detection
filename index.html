@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Food Spoilage Detection</title>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Smart Food Spoilage Detection
+</title>
+
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,259 +23,534 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 body {
+
     background: #f4f7fb;
-    color: #1f2937;
+
+    color: #1e293b;
+
 }
 
-/* HEADER */
+
+/* =================================================
+   HEADER
+================================================= */
 
 .header {
-    background: linear-gradient(135deg, #0f766e, #0891b2);
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f766e,
+        #0891b2
+    );
+
     color: white;
-    padding: 25px;
+
     text-align: center;
+
+    padding: 28px 20px;
+
 }
+
 
 .header h1 {
+
     font-size: 28px;
-    margin-bottom: 7px;
+
+    margin-bottom: 8px;
+
 }
+
 
 .header p {
+
     opacity: 0.9;
+
 }
 
-/* MAIN */
+
+/* =================================================
+   CONTAINER
+================================================= */
 
 .container {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 20px;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 25px 20px;
+
 }
 
-/* CONNECTION */
+
+/* =================================================
+   CONNECTION
+================================================= */
 
 .connection {
+
     background: white;
-    border-radius: 15px;
+
     padding: 15px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+
+    border-radius: 15px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,0.06);
+
 }
+
 
 .online {
+
     color: #16a34a;
+
     font-weight: bold;
+
 }
+
 
 .offline {
+
     color: #dc2626;
+
     font-weight: bold;
+
 }
 
-/* CARDS */
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.card-title {
-    color: #64748b;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.card-value {
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.gas {
-    color: #2563eb;
-}
-
-.safe {
-    color: #16a34a;
-}
-
-.danger {
-    color: #dc2626;
-}
-
-/* STATUS */
-
-.status-box {
-    margin-top: 25px;
-    padding: 30px;
-    border-radius: 18px;
-    text-align: center;
-    background: #dcfce7;
-    color: #166534;
-    transition: 0.3s;
-}
-
-.status-box.danger-box {
-    background: #fee2e2;
-    color: #991b1b;
-    animation: alertBlink 1s infinite;
-}
-
-.status-icon {
-    font-size: 45px;
-    margin-bottom: 10px;
-}
-
-.status-title {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.status-text {
-    margin-top: 8px;
-}
-
-/* GRAPH */
-
-.graph-card {
-    background: white;
-    margin-top: 25px;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.graph-card h2 {
-    margin-bottom: 20px;
-}
-
-canvas {
-    width: 100%;
-    height: 300px;
-}
-
-/* DETAILS */
-
-.details {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.detail-card {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.detail-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 13px 0;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.detail-row:last-child {
-    border-bottom: none;
-}
-
-/* ALERT */
+/* =================================================
+   ALERT
+================================================= */
 
 .alert-banner {
+
     display: none;
+
     background: #dc2626;
+
     color: white;
+
+    text-align: center;
+
     padding: 18px;
-    text-align: center;
-    border-radius: 12px;
+
+    border-radius: 14px;
+
     margin-bottom: 20px;
+
     font-size: 20px;
+
     font-weight: bold;
-    animation: alertBlink 1s infinite;
+
+    animation:
+    alertBlink 1s infinite;
+
 }
 
-/* FOOTER */
-
-.footer {
-    text-align: center;
-    margin-top: 35px;
-    padding: 20px;
-    color: #64748b;
-}
-
-/* ANIMATION */
 
 @keyframes alertBlink {
+
     0% {
         opacity: 1;
     }
 
     50% {
-        opacity: 0.65;
+        opacity: 0.6;
     }
 
     100% {
         opacity: 1;
     }
+
 }
 
-/* MOBILE */
+
+/* =================================================
+   CARDS
+================================================= */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,0.06);
+
+}
+
+
+.card-title {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.card-value {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
+
+
+.gas {
+
+    color: #2563eb;
+
+}
+
+
+.safe {
+
+    color: #16a34a;
+
+}
+
+
+.danger {
+
+    color: #dc2626;
+
+}
+
+
+/* =================================================
+   MAIN STATUS
+================================================= */
+
+.status-box {
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+}
+
+
+.status-box.danger-box {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    animation:
+    alertBlink 1s infinite;
+
+}
+
+
+.status-icon {
+
+    font-size: 45px;
+
+}
+
+
+.status-title {
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    margin-top: 8px;
+
+}
+
+
+.status-text {
+
+    margin-top: 8px;
+
+}
+
+
+/* =================================================
+   GRAPH
+================================================= */
+
+.graph-card {
+
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,0.06);
+
+}
+
+
+.graph-card h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+canvas {
+
+    width: 100%;
+
+    height: 300px;
+
+}
+
+
+/* =================================================
+   SECTION
+================================================= */
+
+.section {
+
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,0.06);
+
+}
+
+
+.section h2 {
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =================================================
+   FAULT LOG TABLE
+================================================= */
+
+.table-container {
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th {
+
+    background: #0f766e;
+
+    color: white;
+
+    padding: 13px;
+
+    text-align: left;
+
+}
+
+
+td {
+
+    padding: 13px;
+
+    border-bottom:
+    1px solid #e5e7eb;
+
+}
+
+
+tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+.fault {
+
+    color: #dc2626;
+
+    font-weight: bold;
+
+}
+
+
+.recovered {
+
+    color: #16a34a;
+
+    font-weight: bold;
+
+}
+
+
+.badge {
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.badge-danger {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+}
+
+
+.badge-safe {
+
+    background: #dcfce7;
+
+    color: #166534;
+
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+.footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #64748b;
+
+    margin-top: 20px;
+
+}
+
+
+/* =================================================
+   RESPONSIVE
+================================================= */
 
 @media(max-width: 900px) {
 
     .cards {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+        repeat(2, 1fr);
+
     }
 
 }
+
 
 @media(max-width: 600px) {
 
     .cards {
+
         grid-template-columns: 1fr;
+
     }
 
-    .details {
-        grid-template-columns: 1fr;
-    }
-
-    .header h1 {
-        font-size: 22px;
-    }
 
     .connection {
+
         flex-direction: column;
+
         gap: 10px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 22px;
+
     }
 
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- HEADER -->
+
+<!-- =================================================
+     HEADER
+================================================= -->
 
 <div class="header">
 
-    <h1>🍱 Smart Food Spoilage Detection</h1>
+    <h1>
+        🍱 Smart Food Spoilage Detection
+    </h1>
 
     <p>
-        ESP32 + MQ Sensor + Firebase Real-Time Monitoring
+        ESP32 • MQ Sensor • OLED • Firebase
     </p>
 
 </div>
@@ -274,277 +558,299 @@ canvas {
 
 <div class="container">
 
-    <!-- CONNECTION STATUS -->
 
-    <div class="connection">
+<!-- =================================================
+     CONNECTION
+================================================= -->
 
-        <div>
-            Firebase Connection
-        </div>
+<div class="connection">
 
-        <div id="connectionStatus"
-             class="offline">
+    <span>
+        Firebase Status
+    </span>
 
-            ● Connecting...
+    <span
+        id="connectionStatus"
+        class="offline">
 
-        </div>
+        ● Connecting...
+
+    </span>
+
+</div>
+
+
+<!-- =================================================
+     ALERT
+================================================= -->
+
+<div
+    id="alertBanner"
+    class="alert-banner">
+
+    ⚠️ FOOD SPOILAGE DETECTED ⚠️
+
+</div>
+
+
+<!-- =================================================
+     CARDS
+================================================= -->
+
+<div class="cards">
+
+
+<div class="card">
+
+    <div class="card-title">
+        MQ Gas Level
+    </div>
+
+    <div
+        id="gasValue"
+        class="card-value gas">
+
+        0
+
+    </div>
+
+    <p>
+        ADC Value
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-title">
+        Food Status
+    </div>
+
+    <div
+        id="foodStatus"
+        class="card-value safe">
+
+        FRESH
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-title">
+        Alert
+    </div>
+
+    <div
+        id="alertStatus"
+        class="card-value safe">
+
+        OFF
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-title">
+        Threshold
+    </div>
+
+    <div class="card-value">
+
+        1800
+
+    </div>
+
+    <p>
+        ADC Level
+    </p>
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     STATUS
+================================================= -->
+
+<div
+    id="statusBox"
+    class="status-box">
+
+    <div
+        id="statusIcon"
+        class="status-icon">
+
+        ✓
 
     </div>
 
 
-    <!-- ALERT -->
+    <div
+        id="statusTitle"
+        class="status-title">
 
-    <div id="alertBanner"
-         class="alert-banner">
-
-        ⚠️ FOOD SPOILAGE DETECTED ⚠️
-
-    </div>
-
-
-    <!-- CARDS -->
-
-    <div class="cards">
-
-        <!-- GAS -->
-
-        <div class="card">
-
-            <div class="card-title">
-                MQ Gas Sensor
-            </div>
-
-            <div id="gasValue"
-                 class="card-value gas">
-
-                0
-
-            </div>
-
-            <div>
-                ADC Value
-            </div>
-
-        </div>
-
-
-        <!-- FOOD -->
-
-        <div class="card">
-
-            <div class="card-title">
-                Food Status
-            </div>
-
-            <div id="foodStatus"
-                 class="card-value safe">
-
-                FRESH
-
-            </div>
-
-        </div>
-
-
-        <!-- ALERT -->
-
-        <div class="card">
-
-            <div class="card-title">
-                Alert Status
-            </div>
-
-            <div id="alertStatus"
-                 class="card-value safe">
-
-                OFF
-
-            </div>
-
-        </div>
-
-
-        <!-- THRESHOLD -->
-
-        <div class="card">
-
-            <div class="card-title">
-                Spoilage Threshold
-            </div>
-
-            <div class="card-value">
-                1800
-            </div>
-
-            <div>
-                ADC Level
-            </div>
-
-        </div>
+        FOOD IS FRESH
 
     </div>
 
 
-    <!-- MAIN STATUS -->
+    <div
+        id="statusText"
+        class="status-text">
 
-    <div id="statusBox"
-         class="status-box">
-
-        <div id="statusIcon"
-             class="status-icon">
-
-            ✓
-
-        </div>
-
-        <div id="statusTitle"
-             class="status-title">
-
-            FOOD IS FRESH
-
-        </div>
-
-        <div id="statusText"
-             class="status-text">
-
-            No abnormal gas level detected.
-
-        </div>
+        No abnormal gas level detected.
 
     </div>
 
-
-    <!-- GRAPH -->
-
-    <div class="graph-card">
-
-        <h2>
-            📈 Real-Time Gas Level
-        </h2>
-
-        <canvas id="gasChart"></canvas>
-
-    </div>
+</div>
 
 
-    <!-- DETAILS -->
+<!-- =================================================
+     GRAPH
+================================================= -->
 
-    <div class="details">
+<div class="graph-card">
 
-        <div class="detail-card">
+    <h2>
+        📈 Real-Time Gas Level
+    </h2>
 
-            <h2>
-                System Information
-            </h2>
+    <canvas
+        id="gasChart">
+    </canvas>
 
-            <div class="detail-row">
-
-                <span>
-                    Device
-                </span>
-
-                <strong>
-                    ESP32 Dev Module
-                </strong>
-
-            </div>
-
-            <div class="detail-row">
-
-                <span>
-                    Sensor
-                </span>
-
-                <strong>
-                    MQ Gas Sensor
-                </strong>
-
-            </div>
-
-            <div class="detail-row">
-
-                <span>
-                    Buzzer
-                </span>
-
-                <strong>
-                    GPIO 27
-                </strong>
-
-            </div>
-
-            <div class="detail-row">
-
-                <span>
-                    OLED
-                </span>
-
-                <strong>
-                    I2C 0x3C
-                </strong>
-
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="detail-card">
+<!-- =================================================
+     FAULT LOG
+================================================= -->
 
-            <h2>
-                Live Data
-            </h2>
+<div class="section">
 
-            <div class="detail-row">
+    <h2>
+        ⚠️ Fault / Event Log
+    </h2>
 
-                <span>
-                    Current Gas Value
-                </span>
 
-                <strong id="detailGas">
-                    0
-                </strong>
+    <div class="table-container">
 
-            </div>
+        <table>
 
-            <div class="detail-row">
+            <thead>
 
-                <span>
-                    Food Condition
-                </span>
+                <tr>
 
-                <strong id="detailFood">
-                    FRESH
-                </strong>
+                    <th>
+                        Date & Time
+                    </th>
 
-            </div>
+                    <th>
+                        Gas Value
+                    </th>
 
-            <div class="detail-row">
+                    <th>
+                        Fault Type
+                    </th>
 
-                <span>
-                    Alert
-                </span>
+                    <th>
+                        Food Status
+                    </th>
 
-                <strong id="detailAlert">
-                    OFF
-                </strong>
+                    <th>
+                        Alert
+                    </th>
 
-            </div>
+                </tr>
 
-            <div class="detail-row">
+            </thead>
 
-                <span>
-                    Last Update
-                </span>
 
-                <strong id="lastUpdate">
-                    --
-                </strong>
+            <tbody
+                id="faultTable">
 
-            </div>
+                <tr>
 
-        </div>
+                    <td colspan="5"
+                        style="text-align:center">
+
+                        Waiting for fault logs...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
 
     </div>
+
+</div>
+
+
+<!-- =================================================
+     SYSTEM DETAILS
+================================================= -->
+
+<div class="section">
+
+    <h2>
+        System Information
+    </h2>
+
+
+    <p>
+        <strong>Controller:</strong>
+        ESP32 Dev Module
+    </p>
+
+    <br>
+
+    <p>
+        <strong>Gas Sensor:</strong>
+        MQ Sensor
+    </p>
+
+    <br>
+
+    <p>
+        <strong>OLED:</strong>
+        SSD1306 I2C 0x3C
+    </p>
+
+    <br>
+
+    <p>
+        <strong>Buzzer:</strong>
+        GPIO 27
+    </p>
+
+    <br>
+
+    <p>
+        <strong>Red LED:</strong>
+        GPIO 26
+    </p>
+
+    <br>
+
+    <p>
+        <strong>Green LED:</strong>
+        GPIO 25
+    </p>
+
+</div>
+
 
 </div>
 
@@ -552,154 +858,217 @@ canvas {
 <div class="footer">
 
     Smart Food Spoilage Detection System<br>
-    ESP32 + MQ Sensor + Firebase
+
+    ESP32 + MQ Sensor + Firebase Real-Time Monitoring
 
 </div>
 
 
-<!-- ================================================= -->
-<!-- FIREBASE -->
-<!-- ================================================= -->
+<!-- =================================================
+     FIREBASE
+================================================= -->
 
 <script type="module">
 
+
 import {
+
     initializeApp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 
 import {
+
     getDatabase,
+
     ref,
-    onValue,
-    onDisconnect
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+
+    onValue
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
 
 
 // =====================================================
-// FIREBASE CONFIGURATION
+// FIREBASE CONFIG
 // =====================================================
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyCR4atUdFf32u-88JmJkL-ImzerwuUlzPo",
+    "AIzaSyCR4atUdFf32u-88JmJkL-ImzerwuUlzPo",
 
     authDomain:
-        "smart-food-spoilage-dete-f0527.firebaseapp.com",
+    "smart-food-spoilage-dete-f0527.firebaseapp.com",
 
     databaseURL:
-        "https://smart-food-spoilage-dete-f0527-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "https://smart-food-spoilage-dete-f0527-default-rtdb.asia-southeast1.firebasedatabase.app",
 
     projectId:
-        "smart-food-spoilage-dete-f0527",
+    "smart-food-spoilage-dete-f0527",
 
     storageBucket:
-        "smart-food-spoilage-dete-f0527.firebasestorage.app",
+    "smart-food-spoilage-dete-f0527.firebasestorage.app",
 
     messagingSenderId:
-        "525459841921",
+    "525459841921",
 
     appId:
-        "1:525459841921:web:2b737230633c1d99c87e80"
+    "1:525459841921:web:2b737230633c1d99c87e80"
+
 };
 
 
 // =====================================================
-// INITIALIZE FIREBASE
+// INITIALIZE
 // =====================================================
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(
+        firebaseConfig
+    );
 
-const database = getDatabase(app);
 
-
-// =====================================================
-// DATABASE REFERENCE
-// =====================================================
-
-const smartFoodRef =
-    ref(database, "smartFood");
+const database =
+    getDatabase(app);
 
 
 // =====================================================
-// HTML ELEMENTS
+// REFERENCES
 // =====================================================
 
-const gasValueElement =
-    document.getElementById("gasValue");
+const currentRef =
+    ref(
+        database,
+        "smartFood/current"
+    );
 
-const foodStatusElement =
-    document.getElementById("foodStatus");
 
-const alertStatusElement =
-    document.getElementById("alertStatus");
+const faultLogRef =
+    ref(
+        database,
+        "smartFood/faultLog"
+    );
 
-const detailGasElement =
-    document.getElementById("detailGas");
 
-const detailFoodElement =
-    document.getElementById("detailFood");
+// =====================================================
+// ELEMENTS
+// =====================================================
 
-const detailAlertElement =
-    document.getElementById("detailAlert");
+const gasValue =
+    document.getElementById(
+        "gasValue"
+    );
 
-const lastUpdateElement =
-    document.getElementById("lastUpdate");
+
+const foodStatus =
+    document.getElementById(
+        "foodStatus"
+    );
+
+
+const alertStatus =
+    document.getElementById(
+        "alertStatus"
+    );
+
 
 const statusBox =
-    document.getElementById("statusBox");
+    document.getElementById(
+        "statusBox"
+    );
+
 
 const statusIcon =
-    document.getElementById("statusIcon");
+    document.getElementById(
+        "statusIcon"
+    );
+
 
 const statusTitle =
-    document.getElementById("statusTitle");
+    document.getElementById(
+        "statusTitle"
+    );
+
 
 const statusText =
-    document.getElementById("statusText");
+    document.getElementById(
+        "statusText"
+    );
+
 
 const alertBanner =
-    document.getElementById("alertBanner");
+    document.getElementById(
+        "alertBanner"
+    );
+
 
 const connectionStatus =
-    document.getElementById("connectionStatus");
+    document.getElementById(
+        "connectionStatus"
+    );
+
+
+const faultTable =
+    document.getElementById(
+        "faultTable"
+    );
 
 
 // =====================================================
-// CHART
+// GRAPH
 // =====================================================
 
 const canvas =
-    document.getElementById("gasChart");
+    document.getElementById(
+        "gasChart"
+    );
+
 
 const ctx =
-    canvas.getContext("2d");
+    canvas.getContext(
+        "2d"
+    );
 
 
 let gasHistory = [];
 
-let timeHistory = [];
 
-
-// =====================================================
-// RESIZE CANVAS
-// =====================================================
-
-function resizeCanvas() {
+function resizeCanvas()
+{
 
     const ratio =
         window.devicePixelRatio || 1;
 
+
     canvas.width =
-        canvas.clientWidth * ratio;
+        canvas.clientWidth *
+        ratio;
+
 
     canvas.height =
-        canvas.clientHeight * ratio;
+        canvas.clientHeight *
+        ratio;
 
-    ctx.scale(ratio, ratio);
+
+    ctx.setTransform(
+        ratio,
+        0,
+        0,
+        ratio,
+        0,
+        0
+    );
+
 
     drawChart();
+
 }
 
 
@@ -713,10 +1082,12 @@ window.addEventListener(
 // DRAW GRAPH
 // =====================================================
 
-function drawChart() {
+function drawChart()
+{
 
     const width =
         canvas.clientWidth;
+
 
     const height =
         canvas.clientHeight;
@@ -730,11 +1101,18 @@ function drawChart() {
     );
 
 
-    if (gasHistory.length < 2) {
+    if (
+        gasHistory.length < 2
+    )
+    {
 
-        ctx.fillStyle = "#64748b";
+        ctx.fillStyle =
+            "#64748b";
 
-        ctx.font = "16px Arial";
+
+        ctx.font =
+            "16px Arial";
+
 
         ctx.fillText(
             "Waiting for sensor data...",
@@ -742,13 +1120,11 @@ function drawChart() {
             40
         );
 
+
         return;
+
     }
 
-
-    // -----------------------------------------------
-    // Find maximum
-    // -----------------------------------------------
 
     const maxValue =
         Math.max(
@@ -757,63 +1133,72 @@ function drawChart() {
         );
 
 
-    // -----------------------------------------------
     // Grid
-    // -----------------------------------------------
 
     ctx.strokeStyle =
         "#e5e7eb";
 
-    ctx.lineWidth = 1;
+
+    ctx.lineWidth =
+        1;
 
 
     for (
         let i = 0;
         i <= 4;
         i++
-    ) {
+    )
+    {
 
         const y =
             20 +
             (
-                (height - 50) / 4
-            ) * i;
+                (height - 50) /
+                4
+            ) *
+            i;
 
 
         ctx.beginPath();
+
 
         ctx.moveTo(
             45,
             y
         );
 
+
         ctx.lineTo(
             width - 10,
             y
         );
+
 
         ctx.stroke();
 
     }
 
 
-    // -----------------------------------------------
-    // Line
-    // -----------------------------------------------
+    // Graph line
 
     ctx.beginPath();
 
 
     gasHistory.forEach(
-        (value, index) => {
+        (value, index) =>
+        {
 
             const x =
                 45 +
                 (
                     index /
-                    (gasHistory.length - 1)
+                    (
+                        gasHistory.length - 1
+                    )
                 ) *
-                (width - 60);
+                (
+                    width - 60
+                );
 
 
             const y =
@@ -822,10 +1207,15 @@ function drawChart() {
                     1 -
                     value / maxValue
                 ) *
-                (height - 50);
+                (
+                    height - 50
+                );
 
 
-            if (index === 0) {
+            if (
+                index === 0
+            )
+            {
 
                 ctx.moveTo(
                     x,
@@ -833,7 +1223,8 @@ function drawChart() {
                 );
 
             }
-            else {
+            else
+            {
 
                 ctx.lineTo(
                     x,
@@ -849,25 +1240,31 @@ function drawChart() {
     ctx.strokeStyle =
         "#0891b2";
 
-    ctx.lineWidth = 3;
+
+    ctx.lineWidth =
+        3;
+
 
     ctx.stroke();
 
 
-    // -----------------------------------------------
     // Points
-    // -----------------------------------------------
 
     gasHistory.forEach(
-        (value, index) => {
+        (value, index) =>
+        {
 
             const x =
                 45 +
                 (
                     index /
-                    (gasHistory.length - 1)
+                    (
+                        gasHistory.length - 1
+                    )
                 ) *
-                (width - 60);
+                (
+                    width - 60
+                );
 
 
             const y =
@@ -876,10 +1273,13 @@ function drawChart() {
                     1 -
                     value / maxValue
                 ) *
-                (height - 50);
+                (
+                    height - 50
+                );
 
 
             ctx.beginPath();
+
 
             ctx.arc(
                 x,
@@ -889,8 +1289,10 @@ function drawChart() {
                 Math.PI * 2
             );
 
+
             ctx.fillStyle =
                 "#0891b2";
+
 
             ctx.fill();
 
@@ -898,12 +1300,11 @@ function drawChart() {
     );
 
 
-    // -----------------------------------------------
     // Labels
-    // -----------------------------------------------
 
     ctx.fillStyle =
         "#64748b";
+
 
     ctx.font =
         "12px Arial";
@@ -921,53 +1322,44 @@ function drawChart() {
         25,
         height - 25
     );
+
 }
 
 
 // =====================================================
-// FIREBASE REAL-TIME DATA
+// CURRENT DATA
 // =====================================================
 
 onValue(
-    smartFoodRef,
-    (snapshot) => {
+    currentRef,
+    (snapshot) =>
+    {
 
         const data =
             snapshot.val();
 
 
-        if (!data) {
-
-            console.log(
-                "No Firebase data"
-            );
-
+        if (!data)
+        {
             return;
         }
 
 
-        // -------------------------------------------
-        // CONNECTION
-        // -------------------------------------------
-
         connectionStatus.textContent =
             "● Firebase Connected";
+
 
         connectionStatus.className =
             "online";
 
 
-        // -------------------------------------------
-        // DATA
-        // -------------------------------------------
-
-        const gasValue =
+        const value =
             Number(
                 data.gasValue || 0
             );
 
 
-        const foodStatus =
+        const status =
             data.foodStatus ||
             "FRESH";
 
@@ -976,74 +1368,39 @@ onValue(
             data.alert === true;
 
 
-        // -------------------------------------------
-        // GAS VALUE
-        // -------------------------------------------
+        // Gas
 
-        gasValueElement.textContent =
-            gasValue;
+        gasValue.textContent =
+            value;
 
 
-        detailGasElement.textContent =
-            gasValue;
+        // Status
+
+        foodStatus.textContent =
+            status;
 
 
-        // -------------------------------------------
-        // FOOD STATUS
-        // -------------------------------------------
+        // Alert
 
-        foodStatusElement.textContent =
-            foodStatus;
-
-
-        detailFoodElement.textContent =
-            foodStatus;
+        alertStatus.textContent =
+            alert ?
+            "ON" :
+            "OFF";
 
 
-        // -------------------------------------------
-        // ALERT
-        // -------------------------------------------
-
-        if (alert) {
-
-            alertStatusElement.textContent =
-                "ON";
-
-            alertStatusElement.className =
-                "card-value danger";
-
-            detailAlertElement.textContent =
-                "ON";
-
-            detailAlertElement.className =
-                "danger";
-
-        }
-        else {
-
-            alertStatusElement.textContent =
-                "OFF";
-
-            alertStatusElement.className =
-                "card-value safe";
-
-            detailAlertElement.textContent =
-                "OFF";
-
-            detailAlertElement.className =
-                "safe";
-
-        }
+        alertStatus.className =
+            alert ?
+            "card-value danger" :
+            "card-value safe";
 
 
-        // -------------------------------------------
-        // MAIN STATUS
-        // -------------------------------------------
+        // Main status
 
         if (
-            foodStatus === "SPOILED" ||
-            alert === true
-        ) {
+            alert ||
+            status === "SPOILED"
+        )
+        {
 
             statusBox.classList.add(
                 "danger-box"
@@ -1062,15 +1419,16 @@ onValue(
                 "Abnormal gas level detected. Check the food immediately.";
 
 
-            foodStatusElement.className =
-                "card-value danger";
-
-
             alertBanner.style.display =
                 "block";
 
+
+            foodStatus.className =
+                "card-value danger";
+
         }
-        else {
+        else
+        {
 
             statusBox.classList.remove(
                 "danger-box"
@@ -1089,62 +1447,41 @@ onValue(
                 "No abnormal gas level detected.";
 
 
-            foodStatusElement.className =
-                "card-value safe";
-
-
             alertBanner.style.display =
                 "none";
+
+
+            foodStatus.className =
+                "card-value safe";
 
         }
 
 
-        // -------------------------------------------
-        // HISTORY
-        // -------------------------------------------
+        // Graph
 
         gasHistory.push(
-            gasValue
+            value
         );
 
-
-        timeHistory.push(
-            new Date()
-        );
-
-
-        // Keep last 30 values
 
         if (
             gasHistory.length > 30
-        ) {
+        )
+        {
 
             gasHistory.shift();
-
-            timeHistory.shift();
 
         }
 
 
         drawChart();
 
-
-        // -------------------------------------------
-        // LAST UPDATE
-        // -------------------------------------------
-
-        const now =
-            new Date();
-
-
-        lastUpdateElement.textContent =
-            now.toLocaleTimeString();
-
     },
-    (error) => {
+
+    (error) =>
+    {
 
         console.error(
-            "Firebase error:",
             error
         );
 
@@ -1152,23 +1489,161 @@ onValue(
         connectionStatus.textContent =
             "● Firebase Error";
 
+
         connectionStatus.className =
             "offline";
 
     }
+
 );
 
 
 // =====================================================
-// INITIAL GRAPH
+// FAULT LOG
+// =====================================================
+
+onValue(
+    faultLogRef,
+    (snapshot) =>
+    {
+
+        const logs =
+            snapshot.val();
+
+
+        faultTable.innerHTML =
+            "";
+
+
+        if (!logs)
+        {
+
+            faultTable.innerHTML =
+            `
+            <tr>
+                <td colspan="5"
+                    style="text-align:center">
+                    No fault events recorded
+                </td>
+            </tr>
+            `;
+
+
+            return;
+
+        }
+
+
+        const entries =
+            Object.entries(
+                logs
+            );
+
+
+        // Newest first
+
+        entries.reverse();
+
+
+        entries.forEach(
+            ([key, log]) =>
+            {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const date =
+                    new Date();
+
+
+                // millis() from ESP32 is uptime,
+                // so use browser time for display.
+                const displayTime =
+                    date.toLocaleString();
+
+
+                const isFault =
+                    log.faultType ===
+                    "FOOD_SPOILAGE_DETECTED";
+
+
+                const faultText =
+                    isFault ?
+                    "SPOILAGE DETECTED" :
+                    "STATUS RECOVERED";
+
+
+                const badgeClass =
+                    isFault ?
+                    "badge-danger" :
+                    "badge-safe";
+
+
+                row.innerHTML =
+                `
+                <td>
+                    ${displayTime}
+                </td>
+
+                <td>
+                    <strong>
+                        ${log.gasValue ?? "--"}
+                    </strong>
+                </td>
+
+                <td class="${isFault ? "fault" : "recovered"}">
+                    ${faultText}
+                </td>
+
+                <td>
+                    ${log.foodStatus ?? "--"}
+                </td>
+
+                <td>
+                    <span class="badge ${badgeClass}">
+                        ${log.alert ? "ON" : "OFF"}
+                    </span>
+                </td>
+                `;
+
+
+                faultTable.appendChild(
+                    row
+                );
+
+            }
+        );
+
+    },
+
+    (error) =>
+    {
+
+        console.error(
+            "Fault log error:",
+            error
+        );
+
+    }
+
+);
+
+
+// =====================================================
+// START GRAPH
 // =====================================================
 
 setTimeout(
     resizeCanvas,
-    100
+    300
 );
 
 </script>
 
+
 </body>
+
 </html>
